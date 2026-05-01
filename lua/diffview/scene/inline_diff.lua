@@ -825,13 +825,13 @@ local STYLES = {
     change_line_hl = "DiffviewDiffChange",
   },
   -- Overleaf style: deletions rendered inline as strikethrough virt_text so
-  -- the reader sees the change in flow. No block echo, no line hl — the
-  -- char-level rendering stands alone.
+  -- the reader sees the change in flow. No block echo; a subtle line background
+  -- is applied so modified lines stand out from untouched ones.
   overleaf = {
     del_hl = "DiffviewDiffDeleteInline",
     inline_del = true,
     echo_paired_old = false,
-    change_line_hl = nil,
+    change_line_hl = "DiffviewDiffDeleteLine",
   },
 }
 

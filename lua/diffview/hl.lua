@@ -442,6 +442,10 @@ M.hl_links = {
   DiffDelete = "DiffDelete",
   DiffChange = "DiffChange",
   DiffText = "DiffText",
+  -- Used by `diff1_inline` in "overleaf" style as the line background for
+  -- modified lines. Defaults to `DiffDelete` so it's visible out of the box;
+  -- override without `default` to customise.
+  DiffDeleteLine = "DiffDelete",
 }
 
 function M.update_diff_hl()
@@ -462,6 +466,8 @@ function M.update_diff_hl()
   -- deletion colours pick up the change here too, and so `enhanced_diff_hl`
   -- mode — which relinks `DiffviewDiffDelete` to `DiffviewDiffDeleteDim` —
   -- is honoured. Runs AFTER the relink above so the final state is read.
+  -- Users may override `DiffviewDiffDeleteInline` in their colorscheme or
+  -- config (without `default`) to customise the appearance.
   local del_fg = M.get_fg("DiffviewDiffDelete", true) or "NONE"
   local del_bg = M.get_bg("DiffviewDiffDelete", true) or "NONE"
   M.hi("DiffviewDiffDeleteInline", {
